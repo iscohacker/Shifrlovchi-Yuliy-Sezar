@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#3F51B5"
+    android:orientation="vertical"
+    android:padding="15dp"
+    tools:context=".activitys.DeCryptoActivit">
+
+    <EditText
+        android:id="@+id/editTextDecryptInput"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:background="#4DD0E1"
+        android:hint="Shifrlangan matnni kiriting"
+        android:inputType="text"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonDecrypt"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="#1A237E"
+        android:text="Shifrdan chiqarish"
+        app:cornerRadius="10dp" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_margin="10dp"
+        android:layout_marginTop="60dp"
+        android:backgroundTint="#4DD0E1"
+        android:elevation="10dp"
+        app:cardCornerRadius="10dp">
+
+        <TextView
+            android:id="@+id/textViewDecryptOutput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Oddiy matn"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:id="@+id/copy"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="end"
+            android:layout_marginTop="235dp"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/copy_blue" />
+    </androidx.cardview.widget.CardView>
+</LinearLayout>
