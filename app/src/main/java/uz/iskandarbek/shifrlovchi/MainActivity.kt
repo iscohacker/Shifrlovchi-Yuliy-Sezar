@@ -5,11 +5,12 @@ import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import uz.iskandarbek.shifrlovchi.activitys.DeCryptoActivit
-import uz.iskandarbek.shifrlovchi.activitys.EncryptoActivit
+import uz.iskandarbek.shifrlovchi.activitys.EncryptActivity
 import uz.iskandarbek.shifrlovchi.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -17,7 +18,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.apply {
             encrypto.setOnClickListener {
-                val intent = Intent(this@MainActivity, EncryptoActivit::class.java)
+                val intent = Intent(this@MainActivity, EncryptActivity::class.java)
                 startActivity(intent)
             }
             decrypto.setOnClickListener {

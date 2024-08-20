@@ -8,7 +8,7 @@
     android:background="#3F51B5"
     android:orientation="vertical"
     android:padding="15dp"
-    tools:context=".activitys.EncryptoActivit">
+    tools:context=".activitys.EncryptActivity">
 
 
     <EditText
@@ -19,7 +19,9 @@
         android:background="#4DD0E1"
         android:hint="Shifrlash uchun matn kiriting"
         android:inputType="text"
-        android:textColor="@color/white"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:textColorHint="#595656"
         android:textSize="18sp" />
 
     <com.google.android.material.button.MaterialButton
@@ -30,6 +32,7 @@
         android:layout_marginTop="30dp"
         android:backgroundTint="#1A237E"
         android:text="Shifrlash"
+        android:textColor="@color/white"
         app:cornerRadius="10dp" />
 
     <androidx.cardview.widget.CardView
@@ -47,6 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:text="Shifrlangan matn"
+            android:textColor="@color/black"
             android:textSize="18sp" />
 
         <ImageView

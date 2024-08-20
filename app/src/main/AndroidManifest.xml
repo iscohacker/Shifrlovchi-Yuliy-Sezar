@@ -15,8 +15,9 @@
         <activity
             android:name=".activitys.DeCryptoActivit"
             android:exported="false" />
+
         <activity
-            android:name=".activitys.EncryptoActivit"
+            android:name=".activitys.EncryptActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

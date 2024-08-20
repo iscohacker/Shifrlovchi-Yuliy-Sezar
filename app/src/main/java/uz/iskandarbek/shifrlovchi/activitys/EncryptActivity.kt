@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
 import uz.iskandarbek.shifrlovchi.R
 
-class DeCryptoActivit : AppCompatActivity() {
+class EncryptActivity : AppCompatActivity() {
 
     private val uzbekAlphabet = listOf(
         "a",
@@ -74,41 +74,38 @@ class DeCryptoActivit : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_de_crypto)
+        setContentView(R.layout.activity_encrypto)
 
-        val editTextDecryptInput = findViewById<EditText>(R.id.editTextDecryptInput)
-        val buttonDecrypt = findViewById<Button>(R.id.buttonDecrypt)
-        val textViewDecryptOutput = findViewById<TextView>(R.id.textViewDecryptOutput)
+        val editTextEncryptInput = findViewById<EditText>(R.id.editTextEncryptInput)
+        val buttonEncrypt = findViewById<Button>(R.id.buttonEncrypt)
+        val textViewEncryptOutput = findViewById<TextView>(R.id.textViewEncryptOutput)
         val copy = findViewById<ImageView>(R.id.copy)
 
-        buttonDecrypt.setOnClickListener {
-            if (editTextDecryptInput.text.isNotBlank()) {
-                val textToDecrypt = editTextDecryptInput.text.toString()
-                val decryptedText = caesarCipherDecrypt(textToDecrypt, 3)
-                textViewDecryptOutput.text = decryptedText
+        buttonEncrypt.setOnClickListener {
+            if (editTextEncryptInput.text.isNotBlank()) {
+                val textToEncrypt = editTextEncryptInput.text.toString()
+                val encryptedText = caesarCipherEncrypt(textToEncrypt, 3)
+                textViewEncryptOutput.text = encryptedText
             } else {
                 Toast.makeText(this, "Hech narsa kiritilgani yo'q", Toast.LENGTH_SHORT).show()
             }
         }
 
         copy.setOnClickListener {
-            val textToCopy = textViewDecryptOutput.text.toString()
+            val textToCopy = textViewEncryptOutput.text.toString()
             if (textToCopy.isNotEmpty()) {
                 copyToClipboard(textToCopy)
-                Toast.makeText(this, "Oddiy matn nusxalandi", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Shifrlangan matn nusxalandi", Toast.LENGTH_SHORT).show()
             } else {
                 Toast.makeText(this, "Nusxalash uchun hech narsa yo'q", Toast.LENGTH_SHORT).show()
             }
         }
-        editTextDecryptInput.addTextChangedListener {
-            if (editTextDecryptInput.text.isBlank()) {
-                textViewDecryptOutput.text = "Oddiy matn"
+
+        editTextEncryptInput.addTextChangedListener {
+            if (editTextEncryptInput.text.isBlank()) {
+                textViewEncryptOutput.text = "Shifrlangan matn"
             }
         }
-    }
-
-    private fun caesarCipherDecrypt(input: String, shift: Int): String {
-        return caesarCipherEncrypt(input, uzbekAlphabet.size - shift)
     }
 
     private fun caesarCipherEncrypt(input: String, shift: Int): String {
@@ -144,7 +141,7 @@ class DeCryptoActivit : AppCompatActivity() {
     private fun copyToClipboard(text: String) {
         val clipboard =
             getSystemService(Context.CLIPBOARD_SERVICE) as android.content.ClipboardManager
-        val clip = android.content.ClipData.newPlainText("Oddiy matn", text)
+        val clip = android.content.ClipData.newPlainText("Shifrlangan matn", text)
         clipboard.setPrimaryClip(clip)
     }
 }
